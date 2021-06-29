@@ -68,5 +68,37 @@ describe('app routes', () => {
       
       expect(data.body).toEqual(expectation);
     });
+    
+    test('gets user todos', async() => {
+
+      const expectation = [
+        {
+          'id': 6,
+          'todo': 'call car insurance',
+          'completed': false,
+          'owner_id': 2
+        },
+        {
+          'id': 7,
+          'todo': 'trim hedges',
+          'completed': false,
+          'owner_id': 2
+        },
+        {
+          'id': 8,
+          'todo': 'buy ice cream',
+          'completed': false,
+          'owner_id': 2
+        }
+      ];
+
+      const data = await fakeRequest(app)
+        .get('/api/todo')
+        .set('Authorization', token)
+        .expect('Content-Type', /json/)
+        .expect(200);
+      
+      expect(data.body).toEqual(expectation);
+    });
   });
 });
