@@ -28,7 +28,7 @@ describe('app routes', () => {
       return client.end(done);
     });
 
-    test('creates user todos', async() => {
+    test('POST test - creates user todos', async() => {
 
       const expectation = [
         {
@@ -69,7 +69,7 @@ describe('app routes', () => {
       expect(data.body).toEqual(expectation);
     });
     
-    test('gets user todos', async() => {
+    test('GET test - gets user todos', async() => {
 
       const expectation = [
         {
@@ -101,7 +101,7 @@ describe('app routes', () => {
       expect(data.body).toEqual(expectation);
     });
 
-    test('changes user todos completed property to true', async() => {
+    test('PUT test - changes user todos completed property to true', async() => {
 
       const expectation = [
         {
